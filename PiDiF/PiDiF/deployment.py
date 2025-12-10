@@ -5,10 +5,12 @@ from django.conf.global_settings import CSRF_TRUSTED_ORIGINS, STORAGES, STATIC_R
 from .settings import *
 from .settings import BASE_DIR
 
+MY_SECRET_KEY = os.environ['MY_SECRET_KEY']
+
 ALLOWED_HOSTS = [os.environ['WEBSITE_HOSTNAME']]
 CSRF_TRUSTED_ORIGINS = ['https://'+os.environ['WEBSITE_HOSTNAME']]
 DEBUG = False
-SECRET_KEY = os.environ['MY_SECRET_KEY']
+SECRET_KEY = MY_SECRET_KEY
 
 MIDDLEWARE = {
     'django.middleware.security.SecurityMiddleware',
@@ -19,7 +21,7 @@ MIDDLEWARE = {
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-]
+}
 
 
 TEMPLATES = [
